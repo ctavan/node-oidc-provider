@@ -1,0 +1,10 @@
+#!/bin/bash -eu
+
+curl --request POST \
+  --url 'http://localhost:3000/token' \
+  --header 'content-type: application/x-www-form-urlencoded' \
+  --data grant_type=authorization_code \
+  --data 'client_id=oidcCLIENT' \
+  --data client_secret=verysecret \
+  --data code="${1}" \
+  --data 'redirect_uri=http://localhost:3000/'
